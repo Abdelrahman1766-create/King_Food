@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "671616230836",
+    "project_id": "king-food-f579c",
+    "storage_bucket": "king-food-f579c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671616230836:android:25eb62bfc416dc8fbc7ee1",
+        "android_client_info": {
+          "package_name": "com.example.king_food"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDhw-vlzGaPNxKQaKGh0z-M-qDTYfppL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

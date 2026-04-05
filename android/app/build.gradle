@@ -1,0 +1,74 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id("dev.flutter.flutter-gradle-plugin")
+    id("com.google.gms.google-services")
+}
+
+android {
+    namespace = "com.example.king_food"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    defaultConfig {
+        applicationId = "com.example.king_food"
+
+        minSdk = 26   // متوافق مع الجهاز اللوحي
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    signingConfigs {
+        create("release") {
+            // These properties should be defined in android/gradle.properties
+            // and a keystore file must exist at the path specified by RELEASE_STORE_FILE
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                storeFile = file(project.property("RELEASE_STORE_FILE") as String)
+            }
+            if (project.hasProperty("RELEASE_STORE_PASSWORD")) {
+                storePassword = project.property("RELEASE_STORE_PASSWORD") as String
+            }
+            if (project.hasProperty("RELEASE_KEY_ALIAS")) {
+                keyAlias = project.property("RELEASE_KEY_ALIAS") as String
+            }
+            if (project.hasProperty("RELEASE_KEY_PASSWORD")) {
+                keyPassword = project.property("RELEASE_KEY_PASSWORD") as String
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable = true
+        }
+        release {
+            minifyEnabled = false
+            shrinkResources = false
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.yandex.android:maps.mobile:4.22.0-full")
+}

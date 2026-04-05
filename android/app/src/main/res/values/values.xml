@@ -1,0 +1,8 @@
+<resources>
+    <!-- Firebase configuration -->
+    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+    <string name="project_id">YOUR_PROJECT_ID</string>
+    <string name="google_app_id">YOUR_GOOGLE_APP_ID</string>
+    <string name="firebase_database_url">YOUR_DATABASE_URL</string>
+    <string name="gcm_defaultSenderId">YOUR_SENDER_ID</string>
+</resources>
